@@ -169,7 +169,7 @@ def PolyDiffPoint(u, x, deg = 3, diff = 1, index = None):
     """
     
     n = len(x)
-    if index == None: index = (n-1)/2
+    if index == None: index = int( (n-1)//2 )
 
     # Fit to a Chebyshev polynomial
     # better conditioned than normal polynomials
@@ -298,8 +298,8 @@ def build_linear_system(u, dt, dx, D = 3, P = 3,time_diff = 'poly',space_diff = 
 
     n, m = u.shape
 
-    if width_x == None: width_x = n/10
-    if width_t == None: width_t = m/10
+    if width_x == None: width_x = int( n//10 )
+    if width_t == None: width_t = int( m//10 )
     if deg_t == None: deg_t = deg_x
 
     # If we're using polynomials to take derviatives, then we toss the data around the edges.
